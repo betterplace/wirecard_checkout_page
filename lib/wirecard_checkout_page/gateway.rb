@@ -15,6 +15,11 @@ module WirecardCheckoutPage
       InitResponse.new Typhoeus.post(init_url, body: checksum.request_parameters)
     end
 
+    def init_recurring(params = {})
+      checksum = WirecardCheckoutPage::RequestInitRecurringChecksum.new(params.merge(authentication_params))
+      response = Typhoeus.post(init_url, body: checksum.request_parameters)
+    end
+
     def check_response(params = {})
       WirecardCheckoutPage::CheckedResponse.new(
         params.merge(authentication_params)

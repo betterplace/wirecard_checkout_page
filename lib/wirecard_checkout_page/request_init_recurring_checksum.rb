@@ -1,7 +1,7 @@
 require 'wirecard_checkout_page/value_handling'
 
 module WirecardCheckoutPage
-  class RequestChecksum
+  class RequestInitRecurringChecksum
     include WirecardCheckoutPage::Utils
     include WirecardCheckoutPage::ValueHandling
 
@@ -9,6 +9,7 @@ module WirecardCheckoutPage
       secret
       customerId
       amount
+      shopId
       paymentType
       currency
       language
@@ -76,9 +77,11 @@ module WirecardCheckoutPage
 
     def add_some_defaults(values)
       default_values = {
+        'shopId'      => 'betterplace', # Missing!?!?
         'paymentType' => 'SELECT',
         'currency'    => 'EUR',
         'language'    => 'de',
+        'transactionIdentifier' => 'INITIAL',
       }
       values.update(default_values) do |key,old,new|
         old.nil? ? new : old

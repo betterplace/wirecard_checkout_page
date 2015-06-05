@@ -18,6 +18,25 @@ describe WirecardCheckoutPage::Gateway do
     end
   end
 
+  describe '#init_recurring' do
+    let(:valid_params) do
+      {
+        amount:           '100.00',
+        orderDescription: 'order',
+        serviceURL:       'https://bp42.com',
+        successURL:       'https://bp42.com',
+        cancelURL:        'https://bp42.com',
+        failureURL:       'https://bp42.com',
+        confirmURL:       'https://bp42.com',
+        orderReference:   '123',
+      }
+    end
+
+    it 'works' do
+      response = gateway.init_recurring(valid_params)
+    end
+  end
+
   describe '#init' do
     let(:valid_params) do
       {

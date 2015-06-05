@@ -22,6 +22,7 @@ rescue LoadError
 end
 require 'wirecard_checkout_page'
 
+# TODO: Use VCR instead?
 RSpec.configure do |config|
   config.before(:all) do
     response = Typhoeus::Response.new(code: 302, body: "", headers: { 'Location' => 'payment-url' })
