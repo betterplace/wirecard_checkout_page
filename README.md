@@ -1,4 +1,6 @@
-# WirecardCheckoutPage
+# UNMAINTAINED BECAUSE WIRECARD IS BANKRUPT
+
+## WirecardCheckoutPage
 
 ## Example usage
 
